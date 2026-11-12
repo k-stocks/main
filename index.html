@@ -40,8 +40,74 @@ a.link:focus-visible{outline:2px solid var(--green);outline-offset:2px}
 .trash-actions .restore-item{background:var(--accent);border-color:var(--accent);color:#fff}
 .trash-actions .permanent-delete{color:#d64b4b}
 .trash-meta{font-size:9px;color:var(--muted);margin-top:5px;letter-spacing:.1px}
-#customTrash{margin-top:8px}
-#trashMenu{display:grid;gap:7px}
+#resetCustomMenu{
+  margin-top:7px;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:12px;
+  background:transparent;
+  border:1px solid var(--line);
+  border-radius:12px;
+  color:var(--muted);
+  font:inherit;
+  font-size:11px;
+  font-weight:700;
+  cursor:pointer;
+}
+#resetCustomMenu:active{opacity:.65}
+#customTrash{margin-top:12px}
+#trashMenu{display:grid;gap:10px}
+#trashMenu .custom-item{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:10px;
+  padding:11px;
+  border-radius:14px;
+}
+#trashMenu .link{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  min-width:0;
+  padding:2px;
+}
+#trashMenu .ico{width:42px;height:42px;flex:none}
+#trashMenu .txt{min-width:0;overflow-wrap:anywhere}
+#trashMenu .txt b{line-height:1.4}
+#trashMenu .txt small{line-height:1.4;overflow-wrap:anywhere}
+.trash-meta{
+  display:inline-flex;
+  align-items:center;
+  margin-top:7px;
+  padding:4px 8px;
+  border-radius:6px;
+  background:var(--tool);
+  color:var(--muted);
+  font-size:9px;
+  letter-spacing:0;
+}
+#trashMenu .trash-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin:0;
+}
+#trashMenu .trash-actions button{
+  min-width:0;
+  min-height:38px;
+  padding:9px 8px;
+  border-radius:9px;
+  font-size:11px;
+}
+#trashMenu .trash-actions .restore-item{background:var(--accent);color:#fff}
+#trashMenu .trash-actions .permanent-delete{background:var(--tool);color:#d64b4b}
+@media(min-width:600px){
+  #trashMenu .custom-item{grid-template-columns:minmax(0,1fr) 210px;align-items:center}
+  #trashMenu .trash-actions{grid-template-columns:1fr}
+}
 .custom-add{margin-top:7px;width:100%;display:flex;align-items:center;justify-content:center;gap:8px;padding:13px;background:var(--card);border:1px dashed var(--muted);border-radius:13px;color:var(--text);font:inherit;font-size:12px;font-weight:700;cursor:pointer}
 .custom-add:active{opacity:.65}
 .modal-backdrop{position:fixed;inset:0;background:#10182799;display:none;align-items:center;justify-content:center;padding:18px;z-index:20}
@@ -81,17 +147,18 @@ footer{text-align:center;color:var(--muted);font-size:8px;padding:18px 3px}
 <main>
   <div class="group"><span class="ko">주식시장 분석</span> STOCK MARKET ANALYSIS</div>
   <nav class="list two" aria-label="주식시장 분석 페이지">
-    <a class="link" href="https://k-stocks.github.io/c/"><span class="ico">🌅</span><span class="txt"><b>국내 증시 개장 전 분석</b><small>PRE-MARKET ANALYSIS</small></span><span class="go">›</span></a>
-    <a class="link" href="https://k-stocks.github.io/t/"><span class="ico">📊</span><span class="txt"><b>시장 수급 분석</b><small>MARKET FLOW ANALYSIS</small></span><span class="go">›</span></a>
-    <a class="link" href="https://k-stocks.github.io/st/"><span class="ico">🔥</span><span class="txt"><b>오늘의 주요 거래 종목</b><small>TODAY'S MOVERS</small></span><span class="go">›</span></a>
-    <a class="link" href="https://k-stocks.github.io/s"><span class="ico">🔎</span><span class="txt"><b>종목 인사이트</b><small>STOCK INSIGHT</small></span><span class="go">›</span></a>
-    <a class="link" href="https://k-stocks.github.io/n/"><span class="ico">📰</span><span class="txt"><b>월가 인사이트</b><small>WALL STREET INSIGHT</small></span><span class="go">›</span></a>
+    <a class="link" href="https://sy-j11.github.io/c/"><span class="ico">🌅</span><span class="txt"><b>국내 증시 개장 전 분석</b><small>PRE-MARKET ANALYSIS</small></span><span class="go">›</span></a>
+    <a class="link" href="https://sy-j11.github.io/t/"><span class="ico">📊</span><span class="txt"><b>시장 수급 분석</b><small>MARKET FLOW ANALYSIS</small></span><span class="go">›</span></a>
+    <a class="link" href="https://sy-j11.github.io/st/"><span class="ico">🔥</span><span class="txt"><b>오늘의 주요 거래 종목</b><small>TODAY'S MOVERS</small></span><span class="go">›</span></a>
+    <a class="link" href="https://sy-j11.github.io/s"><span class="ico">🔎</span><span class="txt"><b>종목 인사이트</b><small>STOCK INSIGHT</small></span><span class="go">›</span></a>
+    <a class="link" href="https://sy-j11.github.io/n/"><span class="ico">📰</span><span class="txt"><b>월가 인사이트</b><small>WALL STREET INSIGHT</small></span><span class="go">›</span></a>
   </nav>
 
   <hr>
   <div class="group"><span class="ko">매크로 경제 분석</span> MACRO ANALYSIS</div>
   <nav class="list" aria-label="매크로 경제 분석 페이지">
-    <a class="link" href="https://k-stocks.github.io/f/"><span class="ico">🏛️</span><span class="txt"><b>미국 경제지표 분석</b><small>US ECONOMIC INDICATORS ANALYSIS</small></span><span class="go">›</span></a>
+    <a class="link" href="https://sy-j11.github.io/fr/"><span class="ico">🏛️</span><span class="txt"><b>연방준비제도 모니터</b><small>FEDERAL RESERVE MONITER</small></span><span class="go">›</span></a>
+    <a class="link" href="https://sy-j11.github.io/f/"><span class="ico">🏦</span><span class="txt"><b>미국 경제지표 분석</b><small>US ECONOMIC INDICATORS ANALYSIS</small></span><span class="go">›</span></a>
   </nav>
 
   <hr>
@@ -99,6 +166,7 @@ footer{text-align:center;color:var(--muted);font-size:8px;padding:18px 3px}
   <nav class="list" id="customMenu" aria-label="맞춤 메뉴"></nav>
   <button class="custom-add" id="addCustomMenu" type="button"><span>＋</span> 추가하기</button>
   <button class="custom-add" id="toggleTrash" type="button" aria-expanded="false"><span>♻️</span> 삭제한 메뉴 복구</button>
+  <button id="resetCustomMenu" type="button"><span>↺</span> 맞춤 메뉴 전체 초기화</button>
   <section id="customTrash" hidden aria-label="삭제한 메뉴 목록">
     <div class="group">삭제한 메뉴 <span id="trashCount"></span></div>
     <nav class="list" id="trashMenu"></nav>
@@ -317,6 +385,22 @@ footer{text-align:center;color:var(--muted);font-size:8px;padding:18px 3px}
       trashMenu.appendChild(empty);
     }
   }
+  document.getElementById('resetCustomMenu').addEventListener('click',function(){
+    var confirmed=window.confirm('맞춤 메뉴를 초기 상태로 복원할까요?\n\n추가한 메뉴와 삭제한 메뉴가 모두 초기화되고, 기본 메뉴인 네이버 Npay 증권만 남습니다. 이 작업은 되돌릴 수 없습니다.');
+    if(!confirmed)return;
+    try{
+      localStorage.removeItem(storageKey);
+      localStorage.removeItem(trashStorageKey);
+      localStorage.removeItem('market-insight-naver-default-permanently-deleted');
+      trashSection.hidden=true;
+      toggleTrash.setAttribute('aria-expanded','false');
+      toggleTrash.innerHTML='<span>♻️</span> 삭제한 메뉴 복구';
+      renderCustomItems();
+      window.alert('맞춤 메뉴가 초기 상태로 복원되었습니다.');
+    }catch(e){
+      window.alert('초기화하지 못했습니다. 브라우저 저장 공간 설정을 확인해 주세요.');
+    }
+  });
   toggleTrash.addEventListener('click',function(){
     var opening=trashSection.hidden;
     trashSection.hidden=!opening;
